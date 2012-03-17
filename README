@@ -1,0 +1,31 @@
+this plugin is made to be able to insert the jwplayer from http://www.longtailvideo.com/ with the wysiwyg editor tinymce from http://www.tinymce.com/
+copy the folder inside your tinymce plugins folder.
+
+css
+====
+to have some css available, copy this :
+
+.JwpPlayerImg {
+  border:1px dotted #cc0000;
+  background-position:center;
+  background-repeat:no-repeat;
+  background-color:#ffffcc;
+  background-image:url(../../../../plugins/jwplayer/img/jwplayer.gif)
+}
+
+to your content.css theme skin file.
+
+to use it with Drupal
+======================
+add this :
+
+'jwplayer' => array(
+  'path' => $editor['library path'] . '/plugins/jwplayer',
+  'buttons' => array('jwplayer' => t('JwPlayer')),
+  'url' => 'http://ssm2017.com',
+  'internal' => TRUE,
+  'load' => TRUE,
+),
+
+in the wysiwyg_tinymce_plugins function (file sites/all/modules/wysiwyg/editors/tinymce.inc)
+known issue : problem with the "line break" plugin that is killing my code.
