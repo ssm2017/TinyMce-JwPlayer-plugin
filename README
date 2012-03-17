@@ -1,5 +1,16 @@
+description
+============
 this plugin is made to be able to insert the jwplayer from http://www.longtailvideo.com/ with the wysiwyg editor tinymce from http://www.tinymce.com/
+
+installation
+=============
 copy the folder inside your tinymce plugins folder.
+
+if the tinymce plugin is located at :
+/js/tinymce/jscripts/tiny_mce/plugins/jwplayer/editor_plugin.js
+
+the flash player should be located at :
+/js/jwplayer/player.swf
 
 css
 ====
@@ -15,9 +26,11 @@ to have some css available, copy this :
 
 to your content.css theme skin file.
 
-to use it with Drupal
-======================
-add this :
+how to use it with Drupal
+==========================
+load the jwplayer.js file with your theme
+
+and add this :
 
 'jwplayer' => array(
   'path' => $editor['library path'] . '/plugins/jwplayer',
@@ -28,4 +41,5 @@ add this :
 ),
 
 in the wysiwyg_tinymce_plugins function (file sites/all/modules/wysiwyg/editors/tinymce.inc)
-known issue : problem with the "line break" plugin that is killing my code.
+
+known issue with Drupal wysiwyg : problem with the "line break" plugin that is killing my code.
