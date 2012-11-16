@@ -70,7 +70,7 @@ var JwPlayerDialog = {
 
     // build id
     var d=new Date();
-    var id = d.getTime();
+    var id = this.generateUUID();
 
     // build the values container
     var data = tinymce.util.JSON.serialize({
@@ -102,6 +102,22 @@ var JwPlayerDialog = {
     tinyMCEPopup.editor.execCommand('mceRepaint');
     tinyMCEPopup.editor.focus();
     tinyMCEPopup.close();
+  },
+
+  generateUUID : function () {
+    var S4 = function () {
+      return Math.floor(
+        Math.random() * 0x10000 /* 65536 */
+      ).toString(16);
+    };
+
+    return (
+      S4() + S4() + "-" +
+      S4() + "-" +
+      S4() + "-" +
+      S4() + "-" +
+      S4() + S4() + S4()
+    );
   }
 };
 
