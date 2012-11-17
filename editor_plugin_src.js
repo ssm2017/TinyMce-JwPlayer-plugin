@@ -72,7 +72,7 @@
           var i = nodes.length;
 
           while (i--) {
-            if (nodes[i].attr('class') ==='JwpPlayerImg') {
+            if (nodes[i].attr('class') ==='JwpPlayerImg mceItem') {
               self.imgToObject(nodes[i], args);
             }
           }
