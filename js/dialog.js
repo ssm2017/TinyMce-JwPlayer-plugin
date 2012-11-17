@@ -21,7 +21,7 @@ var JwPlayerDialog = {
     TinyMCE_EditableSelects.init();
 
     // Get the selected contents as text and place it in the input
-    if (n.nodeName == 'IMG' && dom.getAttrib(n, 'class') == 'JwpPlayerImg') {
+    if (n.nodeName == 'IMG' && dom.getAttrib(n, 'class') == 'JwpPlayerImg mceItem') {
       // get the values in the input hidden field
       var values = tinymce.util.JSON.parse(dom.getAttrib(n, 'data-mce-json'));
       f.file.value          = values.file;
@@ -90,7 +90,7 @@ var JwPlayerDialog = {
       {
         'src'     : ed.theme.url + '/img/trans.gif',
         'id'      : id,
-        'class'   : 'JwpPlayerImg',
+        'class'   : 'JwpPlayerImg mceItem',
         'width'   : nl.width.value,
         'height'  : nl.height.value,
         'data-mce-json' : data

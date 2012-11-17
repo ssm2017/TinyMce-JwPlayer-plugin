@@ -1,0 +1,11 @@
+.JwpPlayerImg {
+  border:1px dotted #cc0000;
+  background-position:center;
+  background-repeat:no-repeat;
+  background-color:#ffffcc;
+  background-image:url(../img/jwplayer.gif)
+}
+
+.mce_jwplayer {
+  background-image:url(../img/jwplayer.gif)
+}

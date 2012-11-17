@@ -12,20 +12,6 @@ if the tinymce plugin is located at :
 the flash player should be located at :
 /js/jwplayer/player.swf
 
-css
-====
-to have some css available, copy this :
-
-.JwpPlayerImg {
-  border:1px dotted #cc0000;
-  background-position:center;
-  background-repeat:no-repeat;
-  background-color:#ffffcc;
-  background-image:url(../../../../plugins/jwplayer/img/jwplayer.gif)
-}
-
-to your content.css theme skin file.
-
 how to use it with Drupal
 ==========================
 load the jwplayer.js file with your theme

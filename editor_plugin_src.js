@@ -27,7 +27,6 @@
     init : function(ed, url) {
       var self = this, lookup = {}, i, y, item, name;
       self.editor = ed;
-      //tinyMCE.DOM.loadCSS(url+ '/css/jwplayer.css');
 
       // Register the command so that it can be invoked by using tinyMCE.activeEditor.execCommand('mceJwPlayer');
       ed.addCommand('mceJwPlayer', function() {
@@ -78,6 +77,30 @@
             }
           }
         });
+      });
+
+      ed.onInit.add(function() {
+        // load the css
+        tinyMCE.activeEditor.dom.loadCSS(url + '/css/jwplayer.css');
+
+        // Display "jwplayer" instead of "img" in element path
+        if (ed.theme && ed.theme.onResolveName) {
+          ed.theme.onResolveName.add(function(theme, path_object) {
+            if (path_object.name === 'img.JwpPlayerImg' && ed.dom.hasClass(path_object.node, 'JwpPlayerImg'))
+              path_object.name = 'jwplayer';
+          });
+        }
+
+        // Add contect menu if it's loaded
+        if (ed && ed.plugins.contextmenu) {
+          ed.plugins.contextmenu.onContextMenu.add(function(plugin, menu, element) {
+            if (element.nodeName === 'IMG' && element.className.indexOf('JwpPlayerImg') !== -1)
+              menu.add({
+                title : 'jwplayer.edit',
+                cmd : 'mceJwPlayer'
+              });
+          });
+        }
       });
 
       // Update media selection status
@@ -136,7 +159,7 @@
 
         img.attr({
           'id'      : node.attr('id'),
-          'class'   : 'JwpPlayerImg',
+          'class'   : 'JwpPlayerImg mceItem',
           'width'   : data.width,
           'height'  : data.height,
           'hspace'  : node.attr('hspace'),
@@ -206,12 +229,12 @@
       // fill the values
       var script_text = new tinymce.html.Node('#text', 3);
       script_text.value = "jwplayer('mediaspace_"+ data.id+ "').setup({"
-              +"    'flashplayer': '"+ jwplayer_url+ "/player.swf',"
-              +"    'controlbar': '"+ data.controlbar+ "',"
-              + extra
-              +"    'width': '"+ data.width+ "',"
-              +"    'height': '"+ data.height+ "'"
-              +"  });";
+      +"    'flashplayer': '"+ jwplayer_url+ "/player.swf',"
+      +"    'controlbar': '"+ data.controlbar+ "',"
+      + extra
+      +"    'width': '"+ data.width+ "',"
+      +"    'height': '"+ data.height+ "'"
+      +"  });";
       script_tag.append(script_text);
       root.append(script_tag);
 
