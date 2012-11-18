@@ -32,8 +32,8 @@
       ed.addCommand('mceJwPlayer', function() {
         ed.windowManager.open({
           file : url + '/dialog.htm',
-          width : 250 + parseInt(ed.getLang('jwplayer.delta_width', 0)),
-          height : 280 + parseInt(ed.getLang('jwplayer.delta_height', 0)),
+          width : 320 + parseInt(ed.getLang('jwplayer.delta_width', 0)),
+          height : 240 + parseInt(ed.getLang('jwplayer.delta_height', 0)),
           inline : 1
         }, {
           plugin_url : url, // Plugin absolute URL
@@ -136,7 +136,7 @@
         author : 'ssm2017 Binder',
         authorurl : 'http://ssm2017.com',
         infourl : 'https://github.com/ssm2017/TinyMce-JwPlayer-plugin',
-        version : "1.0"
+        version : "1.0-j5-t3.5"
       };
     },
 
@@ -185,7 +185,6 @@
       // create the root element
       var root = new tinymce.html.Node('div', 1);
       root.attr({
-        //'id'    : "jwp_"+ data.mediaspace_id,
         'class' : "JwpPlayerItem"
       });
 
@@ -228,6 +227,9 @@
       if (data.streamer != '')  {
         extra += "'streamer': '"+ data.streamer+ "',";
       }
+      if (data.image != '') {
+        extra += "'image':'"+ data.image+"',";
+      }
 
       // fill the values
       var script_text = new tinymce.html.Node('#text', 3);
@@ -236,7 +238,8 @@
       +"    'controlbar': '"+ data.controlbar+ "',"
       + extra
       +"    'width': '"+ data.width+ "',"
-      +"    'height': '"+ data.height+ "'"
+      +"    'height': '"+ data.height+ "',"
+      +"    'stretching': '"+ data.stretching+ "'"
       +"  });";
       script_tag.append(script_text);
       root.append(script_tag);

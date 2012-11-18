@@ -1,3 +1,9 @@
+version
+========
+this version is working with tinymce 3.5.x and jwplayer 5
+more infos about jwplayer options here : http://www.longtailvideo.com/support/jw-player/jw-player-for-flash-v5/12536/configuration-options
+only some essential options are ported.
+
 description
 ============
 this plugin is made to be able to insert the jwplayer from http://www.longtailvideo.com/ with the wysiwyg editor tinymce from http://www.tinymce.com/

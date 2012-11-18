@@ -24,24 +24,34 @@ var JwPlayerDialog = {
     if (n.nodeName == 'IMG' && dom.getAttrib(n, 'class') == 'JwpPlayerImg mceItem') {
       // get the values in the input hidden field
       var values = tinymce.util.JSON.parse(dom.getAttrib(n, 'data-mce-json'));
+      // general
       f.file.value          = values.file;
+      f.image.value         = values.image;
+      f.playlistfile.value  = values.playlistfile;
+      f.streamer.value      = values.streamer;
+      // layout
       f.width.value         = dom.getAttrib(n, 'width');
       f.height.value        = dom.getAttrib(n, 'height');
       f.controlbar.value    = values.controlbar;
-      f.playlistfile.value  = values.playlistfile;
       f.playlist.value      = values.playlist;
       f.playlistsize.value  = values.playlistsize;
-      f.streamer.value      = values.streamer;
+      // behavior
+      f.stretching.value = values.stretching;
     }
     else {
+      // general
       f.file.value          = tinyMCEPopup.getWindowArg('file', '');
+      f.image.value         = tinyMCEPopup.getWindowArg('image', '');
+      f.playlistfile.value  = tinyMCEPopup.getWindowArg('playlistfile', '');
+      f.streamer.value      = tinyMCEPopup.getWindowArg('streamer', '');
+      // layout
       f.width.value         = tinyMCEPopup.getWindowArg('width', '320');
       f.height.value        = tinyMCEPopup.getWindowArg('height', '240');
       f.controlbar.value    = tinyMCEPopup.getWindowArg('controlbar', 'bottom');
-      f.playlistfile.value  = tinyMCEPopup.getWindowArg('playlistfile', '');
       f.playlist.value      = tinyMCEPopup.getWindowArg('playlist', 'right');
       f.playlistsize.value  = tinyMCEPopup.getWindowArg('playlistsize', '150');
-      f.streamer.value      = tinyMCEPopup.getWindowArg('streamer', '');
+      // behavior
+      f.stretching.value = tinyMCEPopup.getWindowArg('stretching', 'uniform');
     }
   },
 
@@ -76,17 +86,22 @@ var JwPlayerDialog = {
     // build the values container
     var data = tinymce.util.JSON.serialize({
       'id'            : id,
+      // general
       'file'          : nl.file.value,
+      'image'         : nl.image.value,
+      'playlistfile'  : nl.playlistfile.value,
+      'streamer'      : nl.streamer.value,
+      // layout
       'width'         : nl.width.value,
       'height'        : nl.height.value,
       'controlbar'    : nl.controlbar.value,
-      'playlistfile'  : nl.playlistfile.value,
       'playlist'      : nl.playlist.value,
       'playlistsize'  : nl.playlistsize.value,
-      'streamer'      : nl.streamer.value
+      // behavior
+      'stretching' : nl.stretching.value
     }, "'");
-    // Insert the contents from the input into the document
 
+    // Insert the contents from the input into the document
     ed.execCommand('mceInsertContent',false, tinyMCEPopup.editor.dom.createHTML(
       'img',
       {
