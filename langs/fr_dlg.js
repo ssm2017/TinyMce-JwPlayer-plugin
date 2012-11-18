@@ -1,4 +1,6 @@
 tinyMCE.addI18n('fr.jwplayer_dlg',{
+  'always' : 'Toujours',
+  'autostart' : 'Démarrage automatique',
   'behavior' : 'Comportement',
   'bottom' : 'En bas',
   'control_bar' : 'Barre de contrôles',
@@ -11,18 +13,24 @@ tinyMCE.addI18n('fr.jwplayer_dlg',{
   'image' : 'Image',
   'layout' : 'Présentation',
   'left' : 'Gauche',
+  'list' : 'Liste',
+  'no' : 'Non',
   'none' : 'Aucun',
   'over' : 'Par dessus',
   'playlist' : 'Liste de lecture',
   'playlist_file' : 'Fichier de liste de lecture',
   'playlist_position' : 'Position de la liste de lecture',
   'playlist_size' : 'Taille de la liste de lecture',
+  'repeat' : 'Repetition',
   'right' : 'Droite',
+  'single' : 'Une fois',
+  'shuffle' : 'Aléatoire',
   'size' : 'Taille',
   'streamer' : 'Serveur de stream',
   'stretching' : 'Etirement',
   'title' : 'Inserer/Editer un JwPlayer',
   'top' : 'Haut',
   'uniform' : 'Uniforme',
-  'width' : 'Largeur'
+  'width' : 'Largeur',
+  'yes' : 'Oui'
 });

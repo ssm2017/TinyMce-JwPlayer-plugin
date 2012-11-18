@@ -36,7 +36,10 @@ var JwPlayerDialog = {
       f.playlist.value      = values.playlist;
       f.playlistsize.value  = values.playlistsize;
       // behavior
-      f.stretching.value = values.stretching;
+      f.stretching.value    = values.stretching;
+      f.autostart.value     = values.autostart;
+      f.repeat.value        = values.repeat;
+      f.shuffle.value       = values.shuffle;
     }
     else {
       // general
@@ -51,7 +54,10 @@ var JwPlayerDialog = {
       f.playlist.value      = tinyMCEPopup.getWindowArg('playlist', 'right');
       f.playlistsize.value  = tinyMCEPopup.getWindowArg('playlistsize', '150');
       // behavior
-      f.stretching.value = tinyMCEPopup.getWindowArg('stretching', 'uniform');
+      f.stretching.value    = tinyMCEPopup.getWindowArg('stretching', 'uniform');
+      f.autostart.value     = tinyMCEPopup.getWindowArg('autostart', 'false');
+      f.repeat.value        = tinyMCEPopup.getWindowArg('repeat', 'none');
+      f.shuffle.value       = tinyMCEPopup.getWindowArg('shuffle', 'false');
     }
   },
 
@@ -98,7 +104,10 @@ var JwPlayerDialog = {
       'playlist'      : nl.playlist.value,
       'playlistsize'  : nl.playlistsize.value,
       // behavior
-      'stretching' : nl.stretching.value
+      'stretching'    : nl.stretching.value,
+      'autostart'     : nl.autostart.value,
+      'repeat'        : nl.repeat.value,
+      'shuffle'       : nl.shuffle.value
     }, "'");
 
     // Insert the contents from the input into the document
