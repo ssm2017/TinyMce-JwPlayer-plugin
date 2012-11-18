@@ -1,5 +1,5 @@
 tinyMCE.addI18n('en.jwplayer_dlg',{
-	'behavior' : 'Behavior',
+  'behavior' : 'Behavior',
   'bottom' : 'Bottom',
   'control_bar' : 'Control bar',
   'controlbar_position' : 'Control bar position',
