@@ -31,6 +31,7 @@ var JwPlayerDialog = {
       f.playlistfile.value  = values.playlistfile;
       f.playlist.value      = values.playlist;
       f.playlistsize.value  = values.playlistsize;
+      f.streamer.value      = values.streamer;
     }
     else {
       f.file.value          = tinyMCEPopup.getWindowArg('file', '');
@@ -40,6 +41,7 @@ var JwPlayerDialog = {
       f.playlistfile.value  = tinyMCEPopup.getWindowArg('playlistfile', '');
       f.playlist.value      = tinyMCEPopup.getWindowArg('playlist', 'right');
       f.playlistsize.value  = tinyMCEPopup.getWindowArg('playlistsize', '150');
+      f.streamer.value      = tinyMCEPopup.getWindowArg('streamer', '');
     }
   },
 
@@ -69,7 +71,6 @@ var JwPlayerDialog = {
       ed.getWin().focus();
 
     // build id
-    var d=new Date();
     var id = this.generateUUID();
 
     // build the values container
@@ -81,7 +82,8 @@ var JwPlayerDialog = {
       'controlbar'    : nl.controlbar.value,
       'playlistfile'  : nl.playlistfile.value,
       'playlist'      : nl.playlist.value,
-      'playlistsize'  : nl.playlistsize.value
+      'playlistsize'  : nl.playlistsize.value,
+      'streamer'      : nl.streamer.value
     }, "'");
     // Insert the contents from the input into the document
 

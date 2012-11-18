@@ -225,6 +225,9 @@
         extra += "'playlist.position': '"+ data.playlist+ "',";
         extra += "'playlist.size': '"+ data.playlistsize+ "',";
       }
+      if (data.streamer != '')  {
+        extra += "'streamer': '"+ data.streamer+ "',";
+      }
 
       // fill the values
       var script_text = new tinymce.html.Node('#text', 3);
